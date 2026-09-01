@@ -1,75 +1,230 @@
-<!doctype html>
-<!--
-  LANDING PROVISIONAL — reemplázala por tu diseño real.
-  Para cambiarla: exporta tu landing desde Claude Design y sustituye este index.html
-  (y sube los archivos que acompañen, p. ej. un support.js, junto a este archivo en la raíz).
-  Las apps privadas viven en subcarpetas: /tareas/ , y las que agregues después.
--->
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adrián Guilarte</title>
-<style>
-  :root {
-    --bg: #f4f3ef;
-    --fg: #1a1a1a;
-    --muted: #6b6b6b;
-    --line: #dcdad2;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #121212;
-      --fg: #ededed;
-      --muted: #9a9a9a;
-      --line: #2c2c2c;
-    }
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    line-height: 1.5;
-  }
-  main { max-width: 34rem; }
-  h1 {
-    font-size: clamp(2rem, 6vw, 3.25rem);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.75rem;
-  }
-  p { color: var(--muted); font-size: 1.05rem; margin: 0 0 2rem; }
-  .links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  a.btn {
-    display: inline-block;
-    padding: 0.6rem 1.1rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    color: var(--fg);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: border-color .15s ease;
-  }
-  a.btn:hover { border-color: var(--fg); }
-  footer { margin-top: 3rem; font-size: 0.85rem; color: var(--muted); }
-</style>
+<script src="./support.js"></script>
 </head>
 <body>
-<main>
-  <h1>Adrián Guilarte</h1>
-  <p>Sitio en construcción. Muy pronto vas a ver algo aquí.</p>
-  <div class="links">
-    <a class="btn" href="mailto:marianojadrian@gmail.com">Escribime</a>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: oklch(98% 0.005 75); }
+    ::selection { background: oklch(35% 0.05 195); color: oklch(98% 0.005 75); }
+    a { color: oklch(35% 0.05 195); text-decoration: none; }
+    a:hover { color: oklch(28% 0.06 195); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-1 { animation: fadeUp 0.7s cubic-bezier(.2,.7,.3,1) both; }
+    .fade-2 { animation: fadeUp 0.7s cubic-bezier(.2,.7,.3,1) 0.1s both; }
+    .fade-3 { animation: fadeUp 0.7s cubic-bezier(.2,.7,.3,1) 0.2s both; }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-1, .fade-2, .fade-3 { animation: none; }
+    }
+    *:focus-visible { outline: 2px solid oklch(35% 0.05 195); outline-offset: 3px; }
+  </style>
+</helmet>
+
+<div lang="{{ lang }}" style="font-family: 'Manrope', -apple-system, sans-serif; background: oklch(98% 0.005 75); color: oklch(22% 0.008 260); min-height: 100vh; line-height: 1.6;">
+
+  <!-- Top bar: lang switcher -->
+  <div style="display: flex; justify-content: flex-end; padding: 28px clamp(20px, 5vw, 64px) 0;">
+    <div role="group" aria-label="Language selector" style="display: flex; gap: 2px; border: 1px solid oklch(85% 0.005 75); border-radius: 999px; padding: 3px;">
+      <button type="button" onClick="{{ setLangEs }}" aria-pressed="{{ isEs }}" style="{{ langBtnEsStyle }}">ES</button>
+      <button type="button" onClick="{{ setLangEn }}" aria-pressed="{{ isEn }}" style="{{ langBtnEnStyle }}">EN</button>
+    </div>
   </div>
-  <footer>© <span id="y"></span> Adrián Guilarte</footer>
-</main>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <!-- HERO -->
+  <section style="padding: clamp(40px,8vw,96px) clamp(20px,5vw,64px) clamp(60px,10vw,120px); display: flex; gap: clamp(32px,6vw,80px); flex-wrap: wrap; align-items: center; max-width: 1280px; margin: 0 auto;">
+    <div class="fade-1" style="flex: 1 1 480px; min-width: 280px;">
+      <h1 style="font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 22px; color: oklch(18% 0.008 260);">{{ t.name }}</h1>
+      <p style="font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 600; color: oklch(35% 0.05 195); margin: 0 0 20px;">{{ t.headline }}</p>
+      <p style="font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: oklch(42% 0.01 260); max-width: 46ch; margin: 0 0 40px; font-weight: 400;">{{ t.tagline }}</p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="{{ t.ctaPrimaryHref }}" style="display: inline-flex; align-items: center; padding: 14px 30px; background: oklch(22% 0.008 260); color: oklch(98% 0.005 75); border-radius: 999px; font-weight: 600; font-size: 1rem; transition: background 0.15s ease;">{{ t.ctaPrimary }}</a>
+        <a href="{{ t.ctaSecondaryHref }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; padding: 14px 30px; border: 1px solid oklch(75% 0.005 75); color: oklch(22% 0.008 260); border-radius: 999px; font-weight: 600; font-size: 1rem;">{{ t.ctaSecondary }}</a>
+      </div>
+    </div>
+
+    <div class="fade-2" style="flex: 1 1 320px; min-width: 260px; display: flex; justify-content: center;">
+      <svg viewBox="0 0 360 360" width="100%" style="max-width: 380px; cursor: default;">
+        <sc-for list="{{ edges }}" as="edge" hint-placeholder-count="8">
+          <line x1="{{ edge.x1 }}" y1="{{ edge.y1 }}" x2="{{ edge.x2 }}" y2="{{ edge.y2 }}" stroke="{{ edge.stroke }}" stroke-width="{{ edge.width }}" style="transition: stroke 0.25s ease, stroke-width 0.25s ease;" />
+        </sc-for>
+        <sc-for list="{{ nodes }}" as="node" hint-placeholder-count="6">
+          <circle cx="{{ node.cx }}" cy="{{ node.cy }}" r="{{ node.r }}" fill="{{ node.fill }}" style="{{ node.style }}" onMouseEnter="{{ node.onEnter }}" onMouseLeave="{{ nodeLeave }}" onClick="{{ node.onEnter }}" tabIndex="0" aria-label="node" />
+        </sc-for>
+      </svg>
+    </div>
+  </section>
+
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px);">
+    <div style="height: 1px; background: oklch(88% 0.005 75);"></div>
+  </div>
+
+  <!-- PROFILE -->
+  <section style="max-width: 1280px; margin: 0 auto; padding: clamp(56px,8vw,100px) clamp(20px,5vw,64px);">
+    <p style="font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(35% 0.05 195); font-weight: 700; margin: 0 0 24px;">{{ t.profileLabel }}</p>
+    <p style="font-size: clamp(1.15rem, 1.8vw, 1.45rem); max-width: 62ch; color: oklch(28% 0.008 260); font-weight: 400; line-height: 1.65; margin: 0;">{{ t.profileText }}</p>
+  </section>
+
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px);">
+    <div style="height: 1px; background: oklch(88% 0.005 75);"></div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <section style="max-width: 1280px; margin: 0 auto; padding: clamp(56px,8vw,100px) clamp(20px,5vw,64px);">
+    <p style="font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(35% 0.05 195); font-weight: 700; margin: 0 0 32px;">{{ t.principlesLabel }}</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
+      <sc-for list="{{ t.principlesItems }}" as="item" hint-placeholder-count="3">
+        <div>
+          <div style="width: 28px; height: 1px; background: oklch(22% 0.008 260); margin-bottom: 18px;"></div>
+          <p style="font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 600; color: oklch(20% 0.008 260); margin: 0;">{{ item }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section style="background: oklch(22% 0.008 260); color: oklch(96% 0.004 75); margin-top: clamp(40px,6vw,80px);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px,10vw,120px) clamp(20px,5vw,64px);">
+      <h2 style="font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.01em; margin: 0 0 20px;">{{ t.contactTitle }}</h2>
+      <p style="font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: oklch(78% 0.006 75); max-width: 50ch; margin: 0 0 44px;">{{ t.contactText }}</p>
+      <div style="display: flex; gap: 20px;">
+        <a href="mailto:marianojadrian@gmail.com" aria-label="{{ t.emailLabel }}" title="{{ t.emailLabel }}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid oklch(45% 0.01 260); display: flex; align-items: center; justify-content: center; color: oklch(96% 0.004 75); flex: none;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
+        </a>
+        <a href="https://wa.me/584127085387" target="_blank" rel="noopener" aria-label="{{ t.whatsappLabel }}" title="{{ t.whatsappLabel }}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid oklch(45% 0.01 260); display: flex; align-items: center; justify-content: center; color: oklch(96% 0.004 75); flex: none;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 10.5c0 4 3.5 5.5 5.5 5.5.6 0 1-.1 1.3-.3.3-.2.5-.6.4-1l-.3-1.2a.6.6 0 0 0-.8-.4l-.9.3c-.6-.3-1.5-1.2-1.8-1.8l.3-.9a.6.6 0 0 0-.4-.8l-1.2-.3c-.4-.1-.8.1-1 .4-.2.3-.3.7-.3 1.3z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/mariano-adrian" target="_blank" rel="noopener" aria-label="{{ t.linkedinLabel }}" title="{{ t.linkedinLabel }}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid oklch(45% 0.01 260); display: flex; align-items: center; justify-content: center; color: oklch(96% 0.004 75); font-size: 0.85rem; font-weight: 700; flex: none;">in</a>
+      </div>
+    </div>
+    <div style="border-top: 1px solid oklch(32% 0.01 260); padding: 22px clamp(20px,5vw,64px); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; max-width: 1280px; margin: 0 auto;">
+      <span style="font-size: 0.85rem; color: oklch(60% 0.006 75);">{{ t.footerName }}</span>
+      <span style="font-size: 0.85rem; color: oklch(60% 0.006 75);">{{ t.footerYear }}</span>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const CONTENT = {
+  es: {
+    name: 'Mariano J. Adrián G.',
+    headline: 'Estrategia, productos digitales e IA aplicada.',
+    tagline: 'Traduzco complejidad en sistemas y productos digitales que funcionan.',
+    ctaPrimary: 'Contactar',
+    ctaPrimaryHref: 'mailto:marianojadrian@gmail.com',
+    ctaSecondary: 'Ver LinkedIn',
+    ctaSecondaryHref: 'https://linkedin.com/in/mariano-adrian',
+    profileLabel: 'Perfil',
+    profileText: 'Su trabajo combina pensamiento estratégico con la construcción de productos digitales, desde la definición inicial hasta su evolución continua. Cuenta con un historial en el desarrollo de cursos e-learning y contenidos audiovisuales, y ha construido sistemas de contenido y aprendizaje que ordenan el conocimiento y facilitan mejores decisiones, integrando inteligencia artificial aplicada como parte natural del proceso. La automatización y la ejecución técnica sostienen cada iniciativa, conectando visión y resultado sin perder rigor ni claridad.',
+    principlesLabel: 'Principios de trabajo',
+    principlesItems: ['Claridad antes que complejidad.', 'Sistemas que escalan.', 'Tecnología al servicio de decisiones mejores.'],
+    contactTitle: '¿Conversamos?',
+    contactText: 'Abierto a conversaciones profesionales sobre estrategia, producto e inteligencia artificial aplicada.',
+    emailLabel: 'Email',
+    whatsappLabel: 'WhatsApp',
+    linkedinLabel: 'LinkedIn',
+    footerName: 'Mariano J. Adrián G.',
+  },
+  en: {
+    name: 'Mariano J. Adrián G.',
+    headline: 'Strategy, digital products and applied AI.',
+    tagline: 'I turn complexity into digital systems and products that work.',
+    ctaPrimary: 'Get in touch',
+    ctaPrimaryHref: 'mailto:marianojadrian@gmail.com',
+    ctaSecondary: 'View LinkedIn',
+    ctaSecondaryHref: 'https://linkedin.com/in/mariano-adrian',
+    profileLabel: 'Profile',
+    profileText: 'His work blends strategic thinking with building digital products, from early definition through continuous evolution. His background includes developing e-learning courses and audiovisual content, and he has built content and learning systems that organize knowledge and support better decisions, weaving applied artificial intelligence naturally into the process. Automation and technical execution ground every initiative, connecting vision and outcome without losing rigor or clarity.',
+    principlesLabel: 'Working principles',
+    principlesItems: ['Clarity before complexity.', 'Systems built to scale.', 'Technology in service of better decisions.'],
+    contactTitle: "Let's talk",
+    contactText: 'Open to professional conversations on strategy, product and applied AI.',
+    emailLabel: 'Email',
+    whatsappLabel: 'WhatsApp',
+    linkedinLabel: 'LinkedIn',
+    footerName: 'Mariano J. Adrián G.',
+  },
+};
+
+const NODES = [
+  { id: 'a', cx: 60, cy: 60, r: 5, core: false },
+  { id: 'b', cx: 300, cy: 70, r: 5, core: false },
+  { id: 'c', cx: 60, cy: 290, r: 5, core: false },
+  { id: 'd', cx: 270, cy: 270, r: 5, core: false },
+  { id: 'e', cx: 150, cy: 230, r: 6, core: true },
+  { id: 'f', cx: 180, cy: 120, r: 7, core: true },
+];
+const EDGES = [
+  { from: 'a', to: 'f' }, { from: 'f', to: 'b' }, { from: 'f', to: 'e' },
+  { from: 'e', to: 'c' }, { from: 'e', to: 'd' }, { from: 'b', to: 'd' },
+  { from: 'a', to: 'c' }, { from: 'f', to: 'd' },
+];
+const DIM = 'oklch(75% 0.01 260)';
+const ACCENT = 'oklch(35% 0.05 195)';
+
+class Component extends DCLogic {
+  state = { lang: 'es', hovered: null };
+
+  renderVals() {
+    const lang = this.state.lang;
+    const isEs = lang === 'es';
+    const base = CONTENT[lang];
+    const t = { ...base, footerYear: String(new Date().getFullYear()) };
+
+    const activeBtn = { border: 'none', borderRadius: '999px', padding: '7px 16px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', background: 'oklch(22% 0.008 260)', color: 'oklch(98% 0.005 75)' };
+    const inactiveBtn = { border: 'none', borderRadius: '999px', padding: '7px 16px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', background: 'transparent', color: 'oklch(45% 0.008 260)' };
+
+    const hovered = this.state.hovered;
+    const byId = Object.fromEntries(NODES.map(n => [n.id, n]));
+    const connected = hovered ? new Set(EDGES.filter(e => e.from === hovered || e.to === hovered).flatMap(e => [e.from, e.to])) : null;
+
+    const nodes = NODES.map(n => {
+      const isHot = hovered === n.id || (connected && connected.has(n.id));
+      return {
+        cx: n.cx, cy: n.cy,
+        r: hovered === n.id ? n.r + 3 : n.r,
+        fill: n.core ? ACCENT : (isHot ? ACCENT : DIM),
+        style: {
+          cursor: 'pointer',
+          transition: 'r 0.2s ease, fill 0.2s ease',
+          animation: n.core ? 'none' : undefined,
+        },
+        onEnter: () => this.setState({ hovered: n.id }),
+      };
+    });
+
+    const edges = EDGES.map((e, i) => {
+      const from = byId[e.from], to = byId[e.to];
+      const active = hovered && (e.from === hovered || e.to === hovered);
+      return {
+        x1: from.cx, y1: from.cy, x2: to.cx, y2: to.cy,
+        stroke: active ? ACCENT : DIM,
+        width: active ? 2 : 1,
+      };
+    });
+
+    return {
+      lang,
+      isEs,
+      isEn: !isEs,
+      t,
+      nodes,
+      edges,
+      nodeLeave: () => this.setState({ hovered: null }),
+      setLangEs: () => this.setState({ lang: 'es' }),
+      setLangEn: () => this.setState({ lang: 'en' }),
+      langBtnEsStyle: isEs ? activeBtn : inactiveBtn,
+      langBtnEnStyle: !isEs ? activeBtn : inactiveBtn,
+    };
+  }
+}
+</script>
 </body>
 </html>
