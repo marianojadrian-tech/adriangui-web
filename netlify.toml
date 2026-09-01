@@ -1,0 +1,19 @@
+# Configuración de Netlify para adriangui.com
+#
+# Rutas privadas: se protegen con la edge function "auth" (usuario + contraseña).
+# Para agregar otra app privada, duplica un bloque [[edge_functions]] con su ruta.
+# Ejemplo para una carpeta /finanzas/:
+#   [[edge_functions]]
+#     path = "/finanzas"
+#     function = "auth"
+#   [[edge_functions]]
+#     path = "/finanzas/*"
+#     function = "auth"
+
+[[edge_functions]]
+  path = "/tareas"
+  function = "auth"
+
+[[edge_functions]]
+  path = "/tareas/*"
+  function = "auth"
