@@ -10,7 +10,7 @@
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <style>
     body { margin: 0; background: oklch(98% 0.005 75); }
     ::selection { background: oklch(35% 0.05 195); color: oklch(98% 0.005 75); }
@@ -22,6 +22,15 @@
     .fade-3 { animation: fadeUp 0.7s cubic-bezier(.2,.7,.3,1) 0.2s both; }
     @media (prefers-reduced-motion: reduce) {
       .fade-1, .fade-2, .fade-3 { animation: none; }
+    }
+    @keyframes driftFloat1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes driftFloat2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+    @keyframes lineFade { 0%,100% { opacity: 0.25; } 50% { opacity: 0.8; } }
+    .drift-1 { animation: driftFloat1 4s ease-in-out infinite; }
+    .drift-2 { animation: driftFloat2 4.5s ease-in-out infinite; }
+    .pulse-line { animation: lineFade 3s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .drift-1, .drift-2, .pulse-line { animation: none; }
     }
     *:focus-visible { outline: 2px solid oklch(35% 0.05 195); outline-offset: 3px; }
   </style>
@@ -38,27 +47,36 @@
   </div>
 
   <!-- HERO -->
-  <section style="padding: clamp(40px,8vw,96px) clamp(20px,5vw,64px) clamp(60px,10vw,120px); display: flex; gap: clamp(32px,6vw,80px); flex-wrap: wrap; align-items: center; max-width: 1280px; margin: 0 auto;">
+  <section style="padding: clamp(40px,8vw,96px) clamp(20px,5vw,64px) clamp(60px,10vw,120px); display: flex; gap: clamp(32px,6vw,80px); flex-wrap: wrap; align-items: center; max-width: 1280px; margin: 0 auto; width: 1117px; height: 340px; padding-left: 156px">
+    
+
     <div class="fade-1" style="flex: 1 1 480px; min-width: 280px;">
-      <h1 style="font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 22px; color: oklch(18% 0.008 260);">{{ t.name }}</h1>
-      <p style="font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 600; color: oklch(35% 0.05 195); margin: 0 0 20px;">{{ t.headline }}</p>
+      
+      <h1 style="font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 22px; color: oklch(18% 0.008 260); width: 693px; height: 79px">{{ t.name }}</h1><p style="font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 600; color: oklch(35% 0.05 195); margin: 0 0 20px;">{{ t.headline }}</p>
       <p style="font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: oklch(42% 0.01 260); max-width: 46ch; margin: 0 0 40px; font-weight: 400;">{{ t.tagline }}</p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
         <a href="{{ t.ctaPrimaryHref }}" style="display: inline-flex; align-items: center; padding: 14px 30px; background: oklch(22% 0.008 260); color: oklch(98% 0.005 75); border-radius: 999px; font-weight: 600; font-size: 1rem; transition: background 0.15s ease;">{{ t.ctaPrimary }}</a>
         <a href="{{ t.ctaSecondaryHref }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; padding: 14px 30px; border: 1px solid oklch(75% 0.005 75); color: oklch(22% 0.008 260); border-radius: 999px; font-weight: 600; font-size: 1rem;">{{ t.ctaSecondary }}</a>
       </div>
-    </div>
-
-    <div class="fade-2" style="flex: 1 1 320px; min-width: 260px; display: flex; justify-content: center;">
-      <svg viewBox="0 0 360 360" width="100%" style="max-width: 380px; cursor: default;">
-        <sc-for list="{{ edges }}" as="edge" hint-placeholder-count="8">
-          <line x1="{{ edge.x1 }}" y1="{{ edge.y1 }}" x2="{{ edge.x2 }}" y2="{{ edge.y2 }}" stroke="{{ edge.stroke }}" stroke-width="{{ edge.width }}" style="transition: stroke 0.25s ease, stroke-width 0.25s ease;" />
-        </sc-for>
-        <sc-for list="{{ nodes }}" as="node" hint-placeholder-count="6">
-          <circle cx="{{ node.cx }}" cy="{{ node.cy }}" r="{{ node.r }}" fill="{{ node.fill }}" style="{{ node.style }}" onMouseEnter="{{ node.onEnter }}" onMouseLeave="{{ nodeLeave }}" onClick="{{ node.onEnter }}" tabIndex="0" aria-label="node" />
-        </sc-for>
+    </div><div class="fade-2" style="flex: 1 1 320px; min-width: 260px; display: flex; justify-content: center; position: relative;">
+      <svg viewBox="0 0 400 400" width="100%" style="max-width: 420px; position: absolute; inset: 0; pointer-events: none; width: 503px; height: 503px; left: 86px; top: -11px" aria-hidden="true">
+        <g stroke="oklch(75% 0.01 260)" stroke-width="1" opacity="0.7">
+          <line x1="30" y1="70" x2="90" y2="30" class="pulse-line" style="animation-delay: 0s;"></line>
+          <line x1="370" y1="60" x2="320" y2="100" class="pulse-line" style="animation-delay: 0.6s;"></line>
+          <line x1="350" y1="340" x2="300" y2="300" class="pulse-line" style="animation-delay: 1.2s;"></line>
+          <line x1="40" y1="330" x2="90" y2="360" class="pulse-line" style="animation-delay: 1.8s;"></line>
+        </g>
+        <circle cx="30" cy="70" r="4" fill="oklch(75% 0.01 260)" class="drift-1"></circle>
+        <circle cx="90" cy="30" r="3" fill="oklch(35% 0.05 195)" class="drift-2"></circle>
+        <circle cx="370" cy="60" r="5" fill="oklch(35% 0.05 195)" class="drift-1" style="animation-delay: 0.4s;"></circle>
+        <circle cx="320" cy="100" r="3" fill="oklch(75% 0.01 260)" class="drift-2" style="animation-delay: 0.8s;"></circle>
+        <circle cx="350" cy="340" r="4" fill="oklch(75% 0.01 260)" class="drift-1" style="animation-delay: 1s;"></circle>
+        <circle cx="300" cy="300" r="3" fill="oklch(35% 0.05 195)" class="drift-2" style="animation-delay: 1.4s;"></circle>
+        <circle cx="40" cy="330" r="5" fill="oklch(35% 0.05 195)" class="drift-1" style="animation-delay: 0.2s;"></circle>
+        <circle cx="90" cy="360" r="3" fill="oklch(75% 0.01 260)" class="drift-2" style="animation-delay: 1.6s;"></circle>
       </svg>
-    </div>
+      
+    <img src="uploads/character-transparent.png" alt="Ilustración 3D de Mariano con tablet" style="width: 366px; max-width: 380px; height: 460px; display: block; position: relative; padding-left: 171px"></div>
   </section>
 
   <div style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px);">
@@ -67,8 +85,8 @@
 
   <!-- PROFILE -->
   <section style="max-width: 1280px; margin: 0 auto; padding: clamp(56px,8vw,100px) clamp(20px,5vw,64px);">
-    <p style="font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(35% 0.05 195); font-weight: 700; margin: 0 0 24px;">{{ t.profileLabel }}</p>
-    <p style="font-size: clamp(1.15rem, 1.8vw, 1.45rem); max-width: 62ch; color: oklch(28% 0.008 260); font-weight: 400; line-height: 1.65; margin: 0;">{{ t.profileText }}</p>
+    <p style="font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(35% 0.05 195); font-weight: 700; margin: 0 0 24px; text-align: left">{{ t.profileLabel }}</p><p style="font-size: clamp(1.15rem, 1.8vw, 1.45rem); max-width: 62ch; color: oklch(28% 0.008 260); font-weight: 400; line-height: 1.5; margin: 0; position: sticky; width: 933px; height: 250px">{{ t.profileText }}</p>
+    
   </section>
 
   <div style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px);">
@@ -95,10 +113,10 @@
       <p style="font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: oklch(78% 0.006 75); max-width: 50ch; margin: 0 0 44px;">{{ t.contactText }}</p>
       <div style="display: flex; gap: 20px;">
         <a href="mailto:marianojadrian@gmail.com" aria-label="{{ t.emailLabel }}" title="{{ t.emailLabel }}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid oklch(45% 0.01 260); display: flex; align-items: center; justify-content: center; color: oklch(96% 0.004 75); flex: none;">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 7l8 6 8-6"></path></svg>
         </a>
         <a href="https://wa.me/584127085387" target="_blank" rel="noopener" aria-label="{{ t.whatsappLabel }}" title="{{ t.whatsappLabel }}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid oklch(45% 0.01 260); display: flex; align-items: center; justify-content: center; color: oklch(96% 0.004 75); flex: none;">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 10.5c0 4 3.5 5.5 5.5 5.5.6 0 1-.1 1.3-.3.3-.2.5-.6.4-1l-.3-1.2a.6.6 0 0 0-.8-.4l-.9.3c-.6-.3-1.5-1.2-1.8-1.8l.3-.9a.6.6 0 0 0-.4-.8l-1.2-.3c-.4-.1-.8.1-1 .4-.2.3-.3.7-.3 1.3z"/></svg>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><path d="M8 10.5c0 4 3.5 5.5 5.5 5.5.6 0 1-.1 1.3-.3.3-.2.5-.6.4-1l-.3-1.2a.6.6 0 0 0-.8-.4l-.9.3c-.6-.3-1.5-1.2-1.8-1.8l.3-.9a.6.6 0 0 0-.4-.8l-1.2-.3c-.4-.1-.8.1-1 .4-.2.3-.3.7-.3 1.3z"></path></svg>
         </a>
         <a href="https://linkedin.com/in/mariano-adrian" target="_blank" rel="noopener" aria-label="{{ t.linkedinLabel }}" title="{{ t.linkedinLabel }}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid oklch(45% 0.01 260); display: flex; align-items: center; justify-content: center; color: oklch(96% 0.004 75); font-size: 0.85rem; font-weight: 700; flex: none;">in</a>
       </div>
