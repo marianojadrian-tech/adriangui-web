@@ -1,263 +1,146 @@
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WWQ9THB8');</script>
-<!-- End Google Tag Manager --><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR7LW1ZSQ3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NR7LW1ZSQ3');
-</script>
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 </head>
-<body><!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWQ9THB8"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<body>
 <x-dc>
 <helmet>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <style>
-    body { margin: 0; background: oklch(98% 0.005 75); }
-    ::selection { background: oklch(35% 0.05 195); color: oklch(98% 0.005 75); }
-    a { color: oklch(35% 0.05 195); text-decoration: none; }
-    a:hover { color: oklch(28% 0.06 195); }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-1 { animation: fadeUp 0.7s cubic-bezier(.2,.7,.3,1) both; }
-    .fade-2 { animation: fadeUp 0.7s cubic-bezier(.2,.7,.3,1) 0.1s both; }
-    .fade-3 { animation: fadeUp 0.7s cubic-bezier(.2,.7,.3,1) 0.2s both; }
-    @media (prefers-reduced-motion: reduce) {
-      .fade-1, .fade-2, .fade-3 { animation: none; }
-    }
-    @keyframes driftFloat1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    @keyframes driftFloat2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
-    @keyframes lineFade { 0%,100% { opacity: 0.25; } 50% { opacity: 0.8; } }
-    .drift-1 { animation: driftFloat1 4s ease-in-out infinite; }
-    .drift-2 { animation: driftFloat2 4.5s ease-in-out infinite; }
-    .pulse-line { animation: lineFade 3s ease-in-out infinite; }
-    @media (prefers-reduced-motion: reduce) {
-      .drift-1, .drift-2, .pulse-line { animation: none; }
-    }
-    *:focus-visible { outline: 2px solid oklch(35% 0.05 195); outline-offset: 3px; }
-  </style>
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { transform: none !important; opacity: 1 !important; transition: none !important; }
+  }
+  a { color: #1d1d1f; text-decoration: none; }
+  @keyframes drift { 0%{ transform: translateY(0px); } 50%{ transform: translateY(-10px); } 100%{ transform: translateY(0px); } }
+</style>
 </helmet>
+<div style="min-height:100vh; width:100%; background:#faf9f7; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',system-ui,sans-serif; color:#1d1d1f; position:relative; overflow-x:hidden;">
 
-<div lang="{{ lang }}" style="font-family: 'Manrope', -apple-system, sans-serif; background: oklch(98% 0.005 75); color: oklch(22% 0.008 260); min-height: 100vh; line-height: 1.6;">
+  <svg width="520" height="520" viewBox="0 0 520 520" style="position:absolute; top:-140px; right:-160px; opacity:0.55; z-index:0;" aria-hidden="true">
+    <circle cx="260" cy="260" r="259" fill="none" stroke="#d8d5cf" stroke-width="1"></circle>
+    <circle cx="260" cy="260" r="190" fill="none" stroke="#d8d5cf" stroke-width="1"></circle>
+    <circle cx="260" cy="260" r="120" fill="none" stroke="#c9a869" stroke-width="1.2"></circle>
+  </svg>
+  <svg width="340" height="340" viewBox="0 0 340 340" style="position:absolute; bottom:40px; left:-180px; opacity:0.5; z-index:0;" aria-hidden="true">
+    <path d="M20 300 C 90 260, 120 180, 60 100 C 30 60, 60 20, 120 30" fill="none" stroke="#c9a869" stroke-width="1.2"></path>
+    <circle cx="120" cy="30" r="4" fill="#c9a869"></circle>
+  </svg>
 
-  <!-- Top bar: lang switcher -->
-  <div style="display: flex; justify-content: flex-end; padding: 28px clamp(20px, 5vw, 64px) 0;">
-    <div role="group" aria-label="Language selector" style="display: flex; gap: 2px; border: 1px solid oklch(85% 0.005 75); border-radius: 999px; padding: 3px;">
-      <button type="button" onClick="{{ setLangEs }}" aria-pressed="{{ isEs }}" style="{{ langBtnEsStyle }}">ES</button>
-      <button type="button" onClick="{{ setLangEn }}" aria-pressed="{{ isEn }}" style="{{ langBtnEnStyle }}">EN</button>
-    </div>
-  </div>
+  <div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; padding:0 24px;">
+    <div style="width:100%; max-width:720px; padding:100px 0 0 0; display:flex; flex-direction:column; gap:64px;">
 
-  <!-- HERO -->
-  <section style="padding: clamp(40px,8vw,96px) clamp(20px,5vw,64px) clamp(60px,10vw,120px) clamp(20px,10vw,156px); display: flex; gap: clamp(32px,6vw,80px); flex-wrap: wrap; align-items: center; max-width: 1280px; margin: 0 auto; width: 100%; box-sizing: border-box;">
-    
-
-    <div class="fade-1" style="flex: 1 1 480px; min-width: 280px;">
-      
-      <h1 style="font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 22px; color: oklch(18% 0.008 260);">{{ t.name }}</h1><p style="font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 600; color: oklch(35% 0.05 195); margin: 0 0 20px;">{{ t.headline }}</p>
-      <p style="font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: oklch(42% 0.01 260); max-width: 46ch; margin: 0 0 40px; font-weight: 400;">{{ t.tagline }}</p>
-      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="{{ t.ctaPrimaryHref }}" style="display: inline-flex; align-items: center; padding: 14px 30px; background: oklch(22% 0.008 260); color: oklch(98% 0.005 75); border-radius: 999px; font-weight: 600; font-size: 1rem; transition: background 0.15s ease;">{{ t.ctaPrimary }}</a>
-        <a href="{{ t.ctaSecondaryHref }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; padding: 14px 30px; border: 1px solid oklch(75% 0.005 75); color: oklch(22% 0.008 260); border-radius: 999px; font-weight: 600; font-size: 1rem;">{{ t.ctaSecondary }}</a>
-      </div>
-    </div><div class="fade-2" style="flex: 1 1 320px; min-width: 260px; display: flex; justify-content: flex-start; position: relative;">
-      <img src="uploads/character-transparent.png" alt="Ilustración 3D de Mariano con tablet" style="width: 100%; max-width: 380px; height: auto; display: block; position: relative;"><svg viewBox="0 0 400 400" width="100%" style="max-width: 380px; position: absolute; inset: 0; pointer-events: none;" aria-hidden="true">
-        <g stroke="oklch(75% 0.01 260)" stroke-width="1" opacity="0.7">
-          <line x1="30" y1="70" x2="90" y2="30" class="pulse-line" style="animation-delay: 0s;"></line>
-          <line x1="370" y1="60" x2="320" y2="100" class="pulse-line" style="animation-delay: 0.6s;"></line>
-          <line x1="350" y1="340" x2="300" y2="300" class="pulse-line" style="animation-delay: 1.2s;"></line>
-          <line x1="40" y1="330" x2="90" y2="360" class="pulse-line" style="animation-delay: 1.8s;"></line>
-        </g>
-        <circle cx="30" cy="70" r="4" fill="oklch(75% 0.01 260)" class="drift-1"></circle>
-        <circle cx="90" cy="30" r="3" fill="oklch(35% 0.05 195)" class="drift-2"></circle>
-        <circle cx="370" cy="60" r="5" fill="oklch(35% 0.05 195)" class="drift-1" style="animation-delay: 0.4s;"></circle>
-        <circle cx="320" cy="100" r="3" fill="oklch(75% 0.01 260)" class="drift-2" style="animation-delay: 0.8s;"></circle>
-        <circle cx="350" cy="340" r="4" fill="oklch(75% 0.01 260)" class="drift-1" style="animation-delay: 1s;"></circle>
-        <circle cx="300" cy="300" r="3" fill="oklch(35% 0.05 195)" class="drift-2" style="animation-delay: 1.4s;"></circle>
-        <circle cx="40" cy="330" r="5" fill="oklch(35% 0.05 195)" class="drift-1" style="animation-delay: 0.2s;"></circle>
-        <circle cx="90" cy="360" r="3" fill="oklch(75% 0.01 260)" class="drift-2" style="animation-delay: 1.6s;"></circle>
-      </svg>
-      
-    </div>
-  </section>
-
-  <div style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px);">
-    <div style="height: 1px; background: oklch(88% 0.005 75);"></div>
-  </div>
-
-  <!-- PROFILE -->
-  <section style="max-width: 1280px; margin: 0 auto; padding: clamp(56px,8vw,100px) clamp(20px,5vw,64px);">
-    <p style="font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(35% 0.05 195); font-weight: 700; margin: 0 0 24px; text-align: center">{{ t.profileLabel }}</p><p style="font-size: clamp(1.15rem, 1.8vw, 1.45rem); max-width: 62ch; color: oklch(28% 0.008 260); font-weight: 400; line-height: 1.5; margin: 0 auto; width: 933px; height: 250px; text-align: center">{{ t.profileText }}</p>
-    
-  </section>
-
-  <div style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px);">
-    <div style="height: 1px; background: oklch(88% 0.005 75);"></div>
-  </div>
-
-  <!-- PRINCIPLES -->
-  <section style="max-width: 1280px; margin: 0 auto; padding: clamp(56px,8vw,100px) clamp(20px,5vw,64px);">
-    <p style="font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(35% 0.05 195); font-weight: 700; margin: 0 0 32px; text-align: center">{{ t.principlesLabel }}</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
-      <sc-for list="{{ t.principlesItems }}" as="item" hint-placeholder-count="3">
-        <div>
-          <div style="width: 28px; height: 1px; background: oklch(22% 0.008 260); margin-bottom: 18px;"></div>
-          <p style="font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 600; color: oklch(20% 0.008 260); margin: 0;">{{ item }}</p>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:26px; height:1px; background:#c9a869;"></div>
+          <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:#8a8a8e; font-weight:500;">Estrategia digital &amp; IA aplicada</div>
         </div>
-      </sc-for>
-    </div>
-  </section>
+        <h1 style="font-size:clamp(38px,5.5vw,54px); line-height:1.06; letter-spacing:-0.02em; font-weight:600; margin:0; color:#1d1d1f;">Mariano Jose<br/>Adrián Guilarte</h1>
+        <p style="font-size:19px; line-height:1.55; color:#4a4a4d; margin:0; max-width:580px; text-wrap:pretty;">Trabajo junto a equipos de liderazgo como implementador técnico independiente: entro a tu operación, entiendo el negocio de cerca y diseño con tu equipo los productos digitales e integraciones de IA que lo llevan al siguiente nivel.</p>
 
-  <!-- CONTACT -->
-  <section style="background: oklch(22% 0.008 260); color: oklch(96% 0.004 75); margin-top: clamp(40px,6vw,80px);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px,10vw,120px) clamp(20px,5vw,64px);">
-      <h2 style="font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.01em; margin: 0 0 20px; text-align: center">{{ t.contactTitle }}</h2>
-      
-      <p style="font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: oklch(78% 0.006 75); max-width: 50ch; margin: 0 auto 44px; text-align: center">{{ t.contactText }}</p><div style="display: flex; gap: 20px; justify-content: center">
-        <a href="mailto:marianojadrian@gmail.com" aria-label="{{ t.emailLabel }}" title="{{ t.emailLabel }}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid oklch(45% 0.01 260); display: flex; align-items: center; justify-content: center; color: oklch(96% 0.004 75); flex: none;">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 7l8 6 8-6"></path></svg>
-        </a>
-        
-        <a href="https://linkedin.com/in/mariano-adrian" target="_blank" rel="noopener" aria-label="{{ t.linkedinLabel }}" title="{{ t.linkedinLabel }}" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid oklch(45% 0.01 260); display: flex; align-items: center; justify-content: center; color: oklch(96% 0.004 75); font-size: 0.85rem; font-weight: 700; flex: none;">in</a>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:8px;">
+          <a href="mailto:marianojadrian@gmail.com" style="display:flex; align-items:center; gap:10px; padding:11px 18px; background:#1d1d1f; border-radius:100px; color:#faf9f7; font-size:15px; font-weight:500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#faf9f7" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="M3 6l9 7 9-7"></path></svg>
+            Escribir un correo
+          </a>
+          <a href="https://www.linkedin.com/in/mariano-adrian" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; padding:11px 18px; background:transparent; border:1px solid rgba(29,29,31,0.2); border-radius:100px; color:#1d1d1f; font-size:15px; font-weight:500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="8" y1="11" x2="8" y2="16"></line><circle cx="8" cy="8" r="0.5" fill="#1d1d1f"></circle><path d="M12 16v-3.2c0-1.6 1.1-2.3 2.2-2.3 1.2 0 1.8 0.8 1.8 2.3V16"></path><line x1="12" y1="11" x2="12" y2="16"></line></svg>
+            Ver LinkedIn
+          </a>
+        </div>
       </div>
+
+      <div style="height:1px; background:linear-gradient(to right, rgba(29,29,31,0.14), transparent);"></div>
+
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:26px; height:1px; background:#c9a869;"></div>
+          <div style="font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:#8a8a8e; font-weight:500;">Áreas de enfoque</div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:32px;">
+
+          <div style="display:flex; flex-direction:column; gap:14px; padding:26px 24px; background:#ffffff; border-radius:16px; border:1px solid rgba(29,29,31,0.06); box-shadow:0 12px 32px -20px rgba(0,0,0,0.15);">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c9a869" stroke-width="1.4"><circle cx="15" cy="15" r="12"></circle><path d="M15 8v7l5 3"></path></svg>
+            <div style="font-size:17px; font-weight:600; color:#1d1d1f;">Estrategia de producto</div>
+            <div style="font-size:15px; line-height:1.55; color:#5a5a5d;">Priorización, roadmap y decisiones de arquitectura alineadas al negocio, no al hype.</div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:14px; padding:26px 24px; background:#ffffff; border-radius:16px; border:1px solid rgba(29,29,31,0.06); box-shadow:0 12px 32px -20px rgba(0,0,0,0.15);">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c9a869" stroke-width="1.4"><rect x="5" y="5" width="9" height="9" rx="1.5"></rect><rect x="16" y="5" width="9" height="9" rx="1.5"></rect><rect x="5" y="16" width="9" height="9" rx="1.5"></rect><rect x="16" y="16" width="9" height="9" rx="1.5"></rect></svg>
+            <div style="font-size:17px; font-weight:600; color:#1d1d1f;">Productos digitales</div>
+            <div style="font-size:15px; line-height:1.55; color:#5a5a5d;">Diseño e implementación de plataformas y flujos de trabajo a la medida de tu operación.</div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:14px; padding:26px 24px; background:#ffffff; border-radius:16px; border:1px solid rgba(29,29,31,0.06); box-shadow:0 12px 32px -20px rgba(0,0,0,0.15);">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#c9a869" stroke-width="1.4"><path d="M15 4 L24 9 V19 L15 26 L6 19 V9 Z"></path><circle cx="15" cy="15" r="3.5"></circle></svg>
+            <div style="font-size:17px; font-weight:600; color:#1d1d1f;">IA aplicada</div>
+            <div style="font-size:15px; line-height:1.55; color:#5a5a5d;">Identificación de oportunidades reales de automatización e integración de IA en procesos existentes.</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="height:1px; background:linear-gradient(to right, rgba(29,29,31,0.14), transparent);"></div>
+
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:26px; height:1px; background:#c9a869;"></div>
+          <div style="font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:#8a8a8e; font-weight:500;">Cómo trabajo</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:22px;">
+
+          <div style="display:flex; gap:20px; align-items:flex-start;">
+            <div style="font-size:14px; font-weight:600; color:#c9a869; width:24px; flex-shrink:0; padding-top:2px;">01</div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="font-size:16px; font-weight:600;">Diagnóstico directo</div>
+              <div style="font-size:15px; line-height:1.55; color:#5a5a5d;">Converso con tu equipo y reviso tus procesos actuales para entender dónde está la fricción real.</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:20px; align-items:flex-start;">
+            <div style="font-size:14px; font-weight:600; color:#c9a869; width:24px; flex-shrink:0; padding-top:2px;">02</div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="font-size:16px; font-weight:600;">Oportunidades priorizadas</div>
+              <div style="font-size:15px; line-height:1.55; color:#5a5a5d;">Identifico qué automatizar o rediseñar primero, según impacto y esfuerzo real de implementación.</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:20px; align-items:flex-start;">
+            <div style="font-size:14px; font-weight:600; color:#c9a869; width:24px; flex-shrink:0; padding-top:2px;">03</div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="font-size:16px; font-weight:600;">Implementación acompañada</div>
+              <div style="font-size:15px; line-height:1.55; color:#5a5a5d;">Trabajo junto a tu equipo hasta que la solución esté en producción y sea sostenible sin mí.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="height:1px; background:linear-gradient(to right, rgba(29,29,31,0.14), transparent);"></div>
+
+      <div style="display:flex; flex-direction:column; gap:22px; padding:40px 36px; background:#1d1d1f; border-radius:20px; margin-bottom:0;">
+        <div style="font-size:22px; line-height:1.4; font-weight:500; color:#faf9f7; max-width:520px;">Si estás evaluando dónde tu negocio pierde eficiencia o qué procesos son candidatos claros para automatización, conversemos.</div>
+        <div style="display:flex; flex-wrap:wrap; gap:16px;">
+          <a href="mailto:marianojadrian@gmail.com" style="display:flex; align-items:center; gap:10px; padding:11px 18px; background:#faf9f7; border-radius:100px; color:#1d1d1f; font-size:15px; font-weight:500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="M3 6l9 7 9-7"></path></svg>
+            marianojadrian@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/mariano-adrian" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; padding:11px 18px; background:transparent; border:1px solid rgba(250,249,247,0.3); border-radius:100px; color:#faf9f7; font-size:15px; font-weight:500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#faf9f7" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="8" y1="11" x2="8" y2="16"></line><circle cx="8" cy="8" r="0.5" fill="#faf9f7"></circle><path d="M12 16v-3.2c0-1.6 1.1-2.3 2.2-2.3 1.2 0 1.8 0.8 1.8 2.3V16"></path><line x1="12" y1="11" x2="12" y2="16"></line></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div style="padding:0 0 48px 0; font-size:13px; color:#a4a4a8;">
+        Mariano Jose Adrián Guilarte
+      </div>
+
     </div>
-    <div style="border-top: 1px solid oklch(32% 0.01 260); padding: 22px clamp(20px,5vw,64px); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; max-width: 1280px; margin: 0 auto;">
-      <span style="font-size: 0.85rem; color: oklch(60% 0.006 75);">{{ t.footerName }}</span>
-      <span style="font-size: 0.85rem; color: oklch(60% 0.006 75);">{{ t.footerYear }}</span>
-    </div>
-  </section>
+  </div>
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script>
-const CONTENT = {
-  es: {
-    name: 'Mariano J. Adrián G.',
-    headline: 'Estrategia, productos digitales e IA aplicada.',
-    tagline: 'Traduzco complejidad en sistemas y productos digitales que funcionan.',
-    ctaPrimary: 'Contactar',
-    ctaPrimaryHref: 'mailto:marianojadrian@gmail.com',
-    ctaSecondary: 'Ver LinkedIn',
-    ctaSecondaryHref: 'https://linkedin.com/in/mariano-adrian',
-    profileLabel: 'Perfil',
-    profileText: 'Su trabajo combina pensamiento estratégico con la construcción de productos digitales, desde la definición inicial hasta su evolución continua. Cuenta con un historial en el desarrollo de cursos e-learning y contenidos audiovisuales, y se ha encargado de estructurar registros, bases de datos y automatizaciones que permiten a la organización contar con data precisa para decidir mejor. La automatización y la ejecución técnica sostienen cada iniciativa, conectando visión y resultado sin perder rigor ni claridad.',
-    principlesLabel: 'Principios de trabajo',
-    principlesItems: ['Claridad antes que complejidad.', 'Sistemas que escalan.', 'Tecnología al servicio de decisiones mejores.'],
-    contactTitle: '¿Conversamos?',
-    contactText: 'Abierto a conversaciones profesionales sobre estrategia, producto e inteligencia artificial aplicada.',
-    emailLabel: 'Email',
-    whatsappLabel: 'WhatsApp',
-    linkedinLabel: 'LinkedIn',
-    footerName: 'Mariano J. Adrián G.',
-  },
-  en: {
-    name: 'Mariano J. Adrián G.',
-    headline: 'Strategy, digital products and applied AI.',
-    tagline: 'I turn complexity into digital systems and products that work.',
-    ctaPrimary: 'Get in touch',
-    ctaPrimaryHref: 'mailto:marianojadrian@gmail.com',
-    ctaSecondary: 'View LinkedIn',
-    ctaSecondaryHref: 'https://linkedin.com/in/mariano-adrian',
-    profileLabel: 'Profile',
-    profileText: 'His work blends strategic thinking with building digital products, from early definition through continuous evolution. His background includes developing e-learning courses and audiovisual content, and he has taken ownership of structuring records, databases and automations that give organizations precise, decision-ready data. Automation and technical execution ground every initiative, connecting vision and outcome without losing rigor or clarity.',
-    principlesLabel: 'Working principles',
-    principlesItems: ['Clarity before complexity.', 'Systems built to scale.', 'Technology in service of better decisions.'],
-    contactTitle: "Let's talk",
-    contactText: 'Open to professional conversations on strategy, product and applied AI.',
-    emailLabel: 'Email',
-    whatsappLabel: 'WhatsApp',
-    linkedinLabel: 'LinkedIn',
-    footerName: 'Mariano J. Adrián G.',
-  },
-};
-
-const NODES = [
-  { id: 'a', cx: 60, cy: 60, r: 5, core: false },
-  { id: 'b', cx: 300, cy: 70, r: 5, core: false },
-  { id: 'c', cx: 60, cy: 290, r: 5, core: false },
-  { id: 'd', cx: 270, cy: 270, r: 5, core: false },
-  { id: 'e', cx: 150, cy: 230, r: 6, core: true },
-  { id: 'f', cx: 180, cy: 120, r: 7, core: true },
-];
-const EDGES = [
-  { from: 'a', to: 'f' }, { from: 'f', to: 'b' }, { from: 'f', to: 'e' },
-  { from: 'e', to: 'c' }, { from: 'e', to: 'd' }, { from: 'b', to: 'd' },
-  { from: 'a', to: 'c' }, { from: 'f', to: 'd' },
-];
-const DIM = 'oklch(75% 0.01 260)';
-const ACCENT = 'oklch(35% 0.05 195)';
-
-class Component extends DCLogic {
-  state = { lang: 'es', hovered: null };
-
-  renderVals() {
-    const lang = this.state.lang;
-    const isEs = lang === 'es';
-    const base = CONTENT[lang];
-    const t = { ...base, footerYear: String(new Date().getFullYear()) };
-
-    const activeBtn = { border: 'none', borderRadius: '999px', padding: '7px 16px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', background: 'oklch(22% 0.008 260)', color: 'oklch(98% 0.005 75)' };
-    const inactiveBtn = { border: 'none', borderRadius: '999px', padding: '7px 16px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', background: 'transparent', color: 'oklch(45% 0.008 260)' };
-
-    const hovered = this.state.hovered;
-    const byId = Object.fromEntries(NODES.map(n => [n.id, n]));
-    const connected = hovered ? new Set(EDGES.filter(e => e.from === hovered || e.to === hovered).flatMap(e => [e.from, e.to])) : null;
-
-    const nodes = NODES.map(n => {
-      const isHot = hovered === n.id || (connected && connected.has(n.id));
-      return {
-        cx: n.cx, cy: n.cy,
-        r: hovered === n.id ? n.r + 3 : n.r,
-        fill: n.core ? ACCENT : (isHot ? ACCENT : DIM),
-        style: {
-          cursor: 'pointer',
-          transition: 'r 0.2s ease, fill 0.2s ease',
-          animation: n.core ? 'none' : undefined,
-        },
-        onEnter: () => this.setState({ hovered: n.id }),
-      };
-    });
-
-    const edges = EDGES.map((e, i) => {
-      const from = byId[e.from], to = byId[e.to];
-      const active = hovered && (e.from === hovered || e.to === hovered);
-      return {
-        x1: from.cx, y1: from.cy, x2: to.cx, y2: to.cy,
-        stroke: active ? ACCENT : DIM,
-        width: active ? 2 : 1,
-      };
-    });
-
-    return {
-      lang,
-      isEs,
-      isEn: !isEs,
-      t,
-      nodes,
-      edges,
-      nodeLeave: () => this.setState({ hovered: null }),
-      setLangEs: () => this.setState({ lang: 'es' }),
-      setLangEn: () => this.setState({ lang: 'en' }),
-      langBtnEsStyle: isEs ? activeBtn : inactiveBtn,
-      langBtnEnStyle: !isEs ? activeBtn : inactiveBtn,
-    };
-  }
-}
-</script>
 </body>
 </html>
